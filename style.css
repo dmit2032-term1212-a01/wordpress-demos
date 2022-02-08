@@ -56,6 +56,14 @@ a {
     padding: 0 2%;
 }
 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2.4rem;
+}
+
 section {
     margin-bottom: 4.8rem;
 }
@@ -171,6 +179,27 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements or https://deve
 }
 
 
+/** archives template **/
+/** archive column layout **/
+.col {
+    width: 100%;
+}
+
+ul.page-list,
+ul.cat-list,
+ul.blog-list {}
+
+ul.page-list li > ul,
+ul.cat-list li > ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.remove-default-widget-heading .widget_archive h2 {
+    display: none;
+}
+
+
 @media screen and (min-width: 600px) {
     /** typography **/
     h1 {
@@ -194,6 +223,11 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements or https://deve
         flex: 1 1 65%;
     }
 
+    /** archive column layout **/
+    .col {
+        width: 48%;
+    }
+
 
 }
 
@@ -203,6 +237,10 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements or https://deve
     /** home.php - blog page layout **/
     .blog-card {
         flex: 0 0 48%;
+    }
+    /** archive column layout **/
+    .col {
+        width: 20%;
     } 
 }
 
