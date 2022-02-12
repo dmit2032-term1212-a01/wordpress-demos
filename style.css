@@ -56,6 +56,27 @@ a {
     padding: 0 2%;
 }
 
+.two-thirds-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/** note: this is fluid and not entirely responsive as of yet **/
+.two-thirds-col {
+    width: 65%;
+}
+
+.one-thrid-col {
+    width: 30%;
+}
+
+.sidebar-content {
+    background: #131313;
+    color: #e1e1e1;
+    height: 100vh;
+}
+
 .row {
     display: flex;
     flex-wrap: wrap;
