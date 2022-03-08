@@ -103,14 +103,75 @@ section {
 }
 
 /** HEADER **/
+
+header {
+    background-color: #111;
+    position: relative;
+}
+
+nav{
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    background-color: #111;
+    text-align: center;
+    /** hide the menu **/
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.7s ease-in-out;
+}
+
+.active-nav nav {
+    max-height: 20rem;
+}
+
+ul.main-menu {
+    padding: 3rem 0;
+}
+
+
+ul.main-menu a {
+    color: #e1e1e1;
+    line-height: 2;
+}
+
+/** hover & focus **/
+ul.main-menu a:hover,
+ul.main-menu a:focus {
+    color: cyan;
+}
+
+/** highlighting the menu item to indicate the page you're on */
+ul.main-menu .current_page_item > a {
+    color: coral;
+}
+
+
 /** Logo **/
 .site-logo {
     display: none;
 }
-
+.sm-screens {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .sm-screens > a {
     width: 10rem;
 }
+
+/** toggle icon **/
+.toggle-icon span {
+    width: 5rem;
+    height: 0.5rem;
+    display: block;
+    background-color: rgba(255,255,255,1);
+    margin-bottom: 0.6rem;
+    border-radius: 10rem;
+}
+
+
+
 
 .hero-banner {
     background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,1)),
@@ -229,10 +290,6 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements or https://deve
     width: 100%;
 }
 
-ul.page-list,
-ul.cat-list,
-ul.blog-list {}
-
 ul.page-list li > ul,
 ul.cat-list li > ul {
     list-style-type: none;
@@ -291,12 +348,35 @@ ul.cat-list li > ul {
 @media screen and (min-width: 1000px) {
     /** header **/
     /** logo **/
+    .sm-screens,
     .sm-screens > a {
         display: none;
     }
     .site-logo {
         display: block;
     }
+
+    /** bring back your menu and reset it **/
+    nav {
+        /** reset and reposition your menu **/
+        position: static;
+        max-height: 20rem;
+        overflow: visible;
+        width: auto; /** or initial **/
+    }
+    /** have the logo sit beside your menu **/
+    .lg-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    ul.main-menu {
+        padding: 0;
+        display: flex;
+        gap: 2rem;
+    }
+
 }
 
 @media screen and (min-width: 1560px) {
