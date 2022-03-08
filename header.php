@@ -15,7 +15,7 @@
     </head>
     <body <?php body_class(); ?> >
         <header>
-            <div class="container">
+            <div class="container lg-flex">
                 <!-- option 2: if you don't logo/image it will display the site title (has a fallback ) -->
                 <div class="site-logo">
                     <?php if ( ! has_custom_logo() ) { ?>
@@ -40,7 +40,29 @@
                         <img src=" <?php bloginfo('template_directory');?>/assets/img/design+code-logo.svg " alt="<?php the_title(); ?>">
                         <span class="sr-only"><?php bloginfo( 'name' ); ?></span>
                     </a>
+                    <!-- toggle icon -->
+                    <div class="toggle-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
+                
+                <nav>
+                    <?php
+                        wp_nav_menu(
+                            //array of aruguments
+                            array(
+                                'theme_location'    => 'main-menu', //most important
+                                'container'         => '', //removes the div around the ul
+                                'menu_class'        => 'main-menu',
+                                'menu_id'           => 'main-menu',
+                                'fallback_cb'       =>  '' //optional | if menu doesn't exist - then it fires a callback function.
+                            )
+                        );
+                    ?>
+                </nav>
+
             </div>
             <!-- //container -->
         </header>
