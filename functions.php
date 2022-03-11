@@ -90,7 +90,25 @@ function register_menus() {
    register_nav_menus(
       array(
          'main-menu'    => 'Main Menu',
+         'footer-menu'  => "Footer Menu",
       )
    );
 }
 add_action('init', 'register_menus');
+
+
+//register widgets file
+$wpdemos_includes = array(
+   '/widgets.php',   //register widgets
+);
+
+foreach ($wpdemos_includes as $file ) {
+   $filepath = locate_template( 'inc' . $file );
+   if( ! $filepath ) {
+      trigger_error ( sprintf ( 'Error locating /inc%s file inclusion', $file ), E_USER_ERROR);
+   }
+   require_once $filepath;
+}
+
+//if you just to add without an array 
+//require('inc/widgets.php');
