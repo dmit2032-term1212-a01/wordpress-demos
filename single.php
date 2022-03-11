@@ -16,7 +16,7 @@
         </section>
     </div>
     <div class="container-full">
-        <div class="container">
+        <div class="container two-thirds-layout">
             <!--  //if there are posts then display them... -->
             <?php if ( have_posts() ) : ?>
                 <?php while ( have_posts() ) : the_post();
@@ -27,6 +27,9 @@
                     get_template_part('template-part/content', 'none');
                 ?>
             <?php endif; ?>
+            <div class="right-sidebar one-thrid-col">
+                <?php dynamic_sidebar( 'right-sidebar' ); ?>
+            </div>
         </div>
     </div>
 
