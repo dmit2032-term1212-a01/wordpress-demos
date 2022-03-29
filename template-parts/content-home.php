@@ -43,11 +43,13 @@
         ?>
         <!-- loop for displaying custom content -->
         <?php if ($courses_query->have_posts() ) : ?>
-            <?php while ($courses_query->have_posts() ) : $courses_query->the_post(); ?>
-                <!-- content template go here -->
-                <?php the_title('<h3>', '</h3>'); ?>
-                <?php the_excerpt(); ?>
-            <?php endwhile; ?>
+            <div class="row">
+                <?php while ($courses_query->have_posts() ) : $courses_query->the_post(); ?>
+                    <!-- content template go here -->
+                    <?php the_title('<h3>', '</h3>'); ?>
+                    <?php the_excerpt(); ?>
+                <?php endwhile; ?>
+            </div>
             <?php wp_reset_postdata(); ?>
             <?php else : ?>
                 <p><?php _e('Sorry, no posts matched your criteria'); ?></p>
