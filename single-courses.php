@@ -18,7 +18,24 @@
             <!--  //if there are posts then display them... -->
             <?php if ( have_posts() ) : ?>
                 <?php while ( have_posts() ) : the_post(); ?>
-                   <?php the_content(); ?>
+                   
+                <div class="img-container">
+                    <!-- add img using ACF fields -->
+                    <?php 
+                        $courses_img = get_field('plant_img');
+                        if( !empty($courses_img) ): ?>
+                        <!-- display img -->
+                        <img src="<?php echo esc_url( $courses_img['url']); ?>" alt="<?php echo esc_attr($courses_img['alt']); ?>"/>
+                    <?php endif; ?>
+                </div>
+                
+                <?php the_content(); ?>
+
+
+
+
+
+
                 <?php endwhile; ?>
                 <?php else :
                     get_template_part('template-part/content', 'none');
