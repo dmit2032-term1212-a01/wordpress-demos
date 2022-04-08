@@ -70,5 +70,44 @@
         <?php endif; ?>
 
     </section>
+
+    <section>
+        <!-- display featured posts/blogs on the homepage -->
+        <?php 
+            $args = array(
+                'post_type'         =>  'post', //type of post (ie blogs)
+                'posts_per_page'    => 2, //display # posts
+                'orderby'           => 'date', //show by date
+                'order'             =>  'DESC' //show by the last descendant
+            );
+            //variable ($blog) saved as the new WP_Query object
+            $blog = new WP_Query($args);
+        ?>
+
+        <?php if ($blog->have_posts()) : ?> 
+            <?php while ( $blog->have_posts() ) : $blog->the_post(); ?>
+                <div class="home-blog-card">
+                    <div class="home-blog-header">
+                        <a href="<?php the_permalink(); ?>">
+                            <?php echo the_post_thumbnail( $post->ID, 'large'); ?>
+                        </a>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php the_title('<h4>','</h4>'); ?>
+                        </a>
+                    </div>
+                    <div class="home-blog-body">
+                        <p><?php the_excerpt(); ?> </p>
+                    </div>
+                    <div class="home-blog-footer">
+                        <a href="<?php the_permalink(); ?>"> <?php _e('Read More >'); ?></a>
+                    </div>
+                </div>
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
+        <?php endif; ?>
+    </section>
+    
+
+
  
 </article>
